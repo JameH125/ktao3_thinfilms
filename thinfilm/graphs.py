@@ -24,7 +24,7 @@ ax1.set_xlabel('Energy Cutoff (Ry)', fontsize=12)
 ax1.set_ylabel('Energy (meV)', fontsize=12)
 ax1.grid(True, linestyle='--', alpha=0.7)
 
-# Add inset (zoomed region)
+# Add inset
 inset1 = inset_axes(ax1, width="60%", height="40%", loc='upper right')
 inset1.scatter(cutoffs[4:], cutoff_data['energy'][4:], marker='x', color='C0')
 inset1.set_xlabel('Cutoff (Ry)', fontsize=8)
@@ -44,7 +44,7 @@ ax2.set_xlabel('Number of k-points', fontsize=12)
 ax2.set_ylabel('Energy (meV)', fontsize=12)
 ax2.grid(True, linestyle='--', alpha=0.7)
 
-# Add inset (zoomed region)
+# Add inset
 inset2 = inset_axes(ax2, width="40%", height="40%", loc='upper right')
 inset2.scatter(kpoints[1:], kpoints_data['energy'][1:], marker='x', color='C1')
 inset2.set_xlabel('Number of k-points', fontsize=8)

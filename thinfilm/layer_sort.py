@@ -5,6 +5,7 @@ def sort_layer(indir,natoms,atom_layer,num_layer):
 
     '''
     Sort atoms into their corresponding layer. Layers are sorted from bottom to top.
+    
     Args:
         indir (str)      : path to the input file
         natoms (int)     : number of atoms in the input file
