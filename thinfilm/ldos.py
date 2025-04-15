@@ -5,9 +5,27 @@ import os
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 
 def ldos(layers, num_layers, xlim, ylim, ylim_inset, nscf_file, total_file, dir, outdir, orientation, save, title=None):
-    
-    
-    
+    '''
+    Plots the layer-resolved local density of states (LDOS) for a given set of layers. Layers are taken from the output
+    of the sort_layer function. The Fermi energy is extracted from the nscf file. Uses files obtained from projwfc.x run
+    in Quantum Espresso.
+
+    Args:
+        layers (dict)     : Dictionary containing the layers and their corresponding atoms.
+        num_layers (int)  : Number of layers to plot.
+        xlim (float)      : X-axis limit for the main plot (Also serves as the minimum).
+        ylim (float)      : Y-axis limit for the main plot.
+        ylim_inset (float): Y-axis limit for the inset plot.
+        nscf_file (str)   : Path to the nscf file containing the Fermi energy.
+        total_file (str)  : Path to the total DOS file (.pdos_tot file)
+        dir (str)         : Directory containing the PDOS files. Must end with the prefix of the PDOS files.
+        outdir (str)      : Output directory for saving the plots.
+        orientation (str) : Orientation of the plot ('landscape' or 'portrait').
+        save (bool)       : Whether to save the plot or not.
+        title (str)       : Title of the plot (optional)
+
+
+    '''
     os.makedirs(outdir, exist_ok=True)
     layer_dos = {layer: None for layer in layers}
 
@@ -83,7 +101,6 @@ def ldos(layers, num_layers, xlim, ylim, ylim_inset, nscf_file, total_file, dir,
                 borderpad=1
             )
 
-            # Plot data in inset (same as before)
             inset.plot(energy, dos, color='red', linewidth=1.2)
             inset.set_xlim(fermi_energy - 0.5, fermi_energy + 0.5)
             inset.set_ylim(0, ylim_inset)
@@ -94,11 +111,11 @@ def ldos(layers, num_layers, xlim, ylim, ylim_inset, nscf_file, total_file, dir,
             for label in inset.get_xticklabels() + inset.get_yticklabels():
                 label.set_bbox(dict(
                     facecolor='white', 
-                    alpha=0.8,  # 50% transparency
+                    alpha=0.8,  # 80% transparency
                     edgecolor='none',
                     boxstyle='round,pad=0.2'
                 ))
-                label.set_fontsize(8)  # Optional: Increase font size
+                label.set_fontsize(8)  
 
         except FileNotFoundError:
             print(f"File not found: {filename}")
