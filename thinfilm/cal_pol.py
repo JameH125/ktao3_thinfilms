@@ -2,17 +2,27 @@ import numpy as np
 import pandas as pd
 
 
+### IMPORTANT: These functions are not compiled into the thinfilm library ###
+
 def polarisation(output,input,natoms,x,y,z,born_dict,table_name,dir,csv=False,lat=False,use_born=False):
     '''
     Args:
-        output (str)       : path to the output file
-        initial (np.array) : initial z coordinates of the atoms
+        output (str)       : path to the .out file
+        input  (str)       : path to the .in file
+        natoms             : number of atoms in the system
+        x (int)            : number of unit cells in x direction
+        y (int)            : number of unit cells in y direction
+        z (int)            : number of unit cells in z direction (of the slab i.e. excluding vacuum)
         born_dict (dict)   : dictionary of Born charges for each element
         table_name (str)   : name of the output table
+        dir (str)          : directory to save the output table
+        csv (bool)         : whether to save the table as a csv file
+        lat (bool)         : whether to use the lattice parameters from the output file
+        use_born (bool)    : whether to use the Born charges for O atoms or the nominal values (default is Born)
 
     Returns:
         relax_data (pd.DataFrame) : table containing the polarisation data
-        total (float)             : total polarisation
+        total (float)             : total polarisation (in units of microcoulombs/cm^2)
     '''
 
     # Read output file and extract final coordinates, as well as lattice parameters
@@ -129,27 +139,34 @@ def polarisation(output,input,natoms,x,y,z,born_dict,table_name,dir,csv=False,la
 
     return relax_data, sum(pol)
 
-# Define arguments
+## ================================================================= ##
+# RUN THE POLARISATION FUNCTION
+## ================================================================= ##
 
 born_charges = {'K':1.156, 'Ta': 8.624, 'O_Ta': -6.408, 'O_K': -1.684}
 born_charges_nom = {'K':1, 'Ta': 5, 'O': -2}
 output_file = "stripe/FINAL/t6/bulk/rlx.out"
 input_file  = "stripe/FINAL/t6/bulk/rlx.in"
-
-
-#Run
 data, total = polarisation(output_file,input_file,30,1,1,6,born_charges, "polarisation_data",dir='z',csv=False,lat=False,use_born=False)
 
 
 
 
-
-
-
-
-
-
 def sub_pol(file,natoms,thickness,layers,latx,laty,latz,dir,nom=False):
+    '''
+    Calculates the polarisation of a select layers within the bulk of the slab. (This function is no longer in use)
+
+    Args:
+        file (str)       : path to the .out file
+        natoms (int)     : number of atoms in the system
+        thickness (int)  : thickness of the slab in unit cells
+        layers (int)     : number of layers to be considered
+        latx (float)     : lattice parameter in x direction
+        laty (float)     : lattice parameter in y direction
+        latz (float)     : lattice parameter in z direction
+        dir (str)        : directory to save the output table
+        nom (bool)       : whether to use nominal values for Born charges (default is False)
+    '''
 
     # Extract all coordinates and corresponding elements.
     coordinates = []
