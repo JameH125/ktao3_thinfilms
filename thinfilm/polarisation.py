@@ -3,6 +3,32 @@ import pandas as pd
 from thinfilm import coord
 
 def pol_layer(para_file,output_file,type,step,natoms,thickness,phase,tol,layer_tol,born,a,latx,laty,verbosity,save,data_file):
+    '''
+    Determines the polarisation from the middle layer of a slab. Use for striped, bulk or cation phases.
+
+    Args:
+        para_file (str)   : Path to the paraelectric coordinates file (.in file).
+        output_file (str) : Path to the output file containing the relaxed coordinates.
+        type (str)        : Type of phase (if cation, change to 'caition. Else keep as 'bulk').
+        step (int)        : Step width (for striped phases, else set to 0).
+        natoms (int)      : Number of atoms in the system.
+        thickness (int)   : Thickness of slab in the z direction.
+        phase (str)       : Type of surface. For striped surfaces, they are denoted as Xuc-stA or Xuc-stB, where
+                            X represents the number of unit cells in the y direction (i.e. double the step width)
+        tol (float)       : Tolerance level for the middle bilayer from other layers.
+        layer_tol (float) : Tolerance level within the middle bilayer from the bottom/top K atoms.
+        born (dict)       : Dictionary containing the Born effective charges for each element.
+        a (float)         : Lattice parameter in Angstroms.
+        latx (int)        : Number of unit cells in the x direction.
+        laty (int)        : Number of unit cells in the y direction.
+        verbosity (str)   : Verbosity level ('high' or 'low'). Set 'high' for detailed output.
+        save (bool)       : Whether to save the results to a CSV file or not.
+        data_file (str)   : Path to the CSV file for saving the results.
+
+
+    '''
+    
+    
     # Obtain paraelectric coordinates, and final relaxed coordinates, as well as elements
 
     out_x,out_y,out_z,el         = coord(output_file,natoms,filetype='in')
