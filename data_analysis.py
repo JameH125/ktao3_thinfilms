@@ -14,6 +14,7 @@ import thinfilm as tf
 
 ### Converting files ##########################################################################################################
 
+
 # PARAMETERS #
 pseudo_dir    = 'pseudo_pbe'                                   # Directory containing the pseudopotentials
 pseudo        = {'K': 'k.UPF', 'Ta': 'ta.UPF', 'O': 'o.UPF'}   # Pseudopotentials dictionary
@@ -46,9 +47,9 @@ csv         = False
 
 # PARAMETERS #
 num_layers  = 5
-layer_atoms = [20,20,20,20,19]
-input_file  = 'oxygen_vac/defect/5/rlx.in'
-natoms      = 99
+layer_atoms = [28,40,40,40,32]
+input_file  = 'stripe/FINAL/t5/8uc/stA/rlx.in'
+natoms      = 180
 
 
 #tf.sort_layer(input_file,natoms,layer_atoms,num_layers)
@@ -58,22 +59,22 @@ natoms      = 99
 
 # PARAMETERS (copy from sort layer function and add the comma separations) #
 layers = {
-'Layer 1': [(25, 'Ta'), (26, 'Ta'), (27, 'Ta'), (28, 'Ta'), (64, 'O'), (65, 'O'), (66, 'O'), (67, 'O'), (84, 'O'), (85, 'O'), (86, 'O'), (87, 'O'), (5, 'K'), (6, 'K'), (7, 'K'), (8, 'K'), (49, 'O'), (50, 'O'), (51, 'O'), (52, 'O')],
-'Layer 2': [(33, 'Ta'), (34, 'Ta'), (35, 'Ta'), (36, 'Ta'), (72, 'O'), (73, 'O'), (74, 'O'), (75, 'O'), (92, 'O'), (93, 'O'), (94, 'O'), (95, 'O'), (13, 'K'), (14, 'K'), (15, 'K'), (16, 'K'), (56, 'O'), (57, 'O'), (58, 'O'), (59, 'O')],
-'Layer 3': [(37, 'Ta'), (38, 'Ta'), (39, 'Ta'), (40, 'Ta'), (76, 'O'), (77, 'O'), (78, 'O'), (79, 'O'), (96, 'O'), (97, 'O'), (98, 'O'), (99, 'O'), (17, 'K'), (18, 'K'), (19, 'K'), (20, 'K'), (41, 'O'), (42, 'O'), (43, 'O'), (44, 'O')],
-'Layer 4': [(21, 'Ta'), (22, 'Ta'), (23, 'Ta'), (24, 'Ta'), (60, 'O'), (61, 'O'), (62, 'O'), (63, 'O'), (80, 'O'), (81, 'O'), (82, 'O'), (83, 'O'), (1, 'K'), (2, 'K'), (3, 'K'), (4, 'K'), (45, 'O'), (46, 'O'), (47, 'O'), (48, 'O')],
-'Layer 5': [(29, 'Ta'), (30, 'Ta'), (31, 'Ta'), (32, 'Ta'), (68, 'O'), (69, 'O'), (70, 'O'), (71, 'O'), (88, 'O'), (89, 'O'), (90, 'O'), (91, 'O'), (9, 'K'), (10, 'K'), (11, 'K'), (12, 'K'), (53, 'O'), (54, 'O'), (55, 'O')]
+'Layer 1': [(45, 'Ta'), (46, 'Ta'), (47, 'Ta'), (48, 'Ta'), (117, 'O'), (118, 'O'), (119, 'O'), (120, 'O'), (153, 'O'), (154, 'O'), (155, 'O'), (156, 'O'), (9, 'K'), (10, 'K'), (11, 'K'), (12, 'K'), (13, 'K'), (14, 'K'), (15, 'K'), (16, 'K'), (89, 'O'), (90, 'O'), (91, 'O'), (92, 'O'), (93, 'O'), (94, 'O'), (95, 'O'), (96, 'O')],
+'Layer 2': [(57, 'Ta'), (58, 'Ta'), (59, 'Ta'), (60, 'Ta'), (61, 'Ta'), (62, 'Ta'), (63, 'Ta'), (64, 'Ta'), (129, 'O'), (130, 'O'), (131, 'O'), (132, 'O'), (133, 'O'), (134, 'O'), (135, 'O'), (136, 'O'), (165, 'O'), (166, 'O'), (167, 'O'), (168, 'O'), (169, 'O'), (170, 'O'), (171, 'O'), (172, 'O'), (21, 'K'), (22, 'K'), (23, 'K'), (24, 'K'), (25, 'K'), (26, 'K'), (27, 'K'), (28, 'K'), (101, 'O'), (102, 'O'), (103, 'O'), (104, 'O'), (105, 'O'), (106, 'O'), (107, 'O'), (108, 'O')],
+'Layer 3': [(65, 'Ta'), (66, 'Ta'), (67, 'Ta'), (68, 'Ta'), (69, 'Ta'), (70, 'Ta'), (71, 'Ta'), (72, 'Ta'), (137, 'O'), (138, 'O'), (139, 'O'), (140, 'O'), (141, 'O'), (142, 'O'), (143, 'O'), (144, 'O'), (173, 'O'), (174, 'O'), (175, 'O'), (176, 'O'), (177, 'O'), (178, 'O'), (179, 'O'), (180, 'O'), (29, 'K'), (30, 'K'), (31, 'K'), (32, 'K'), (33, 'K'), (34, 'K'), (35, 'K'), (36, 'K'), (73, 'O'), (74, 'O'), (75, 'O'), (76, 'O'), (77, 'O'), (78, 'O'), (79, 'O'), (80, 'O')],
+'Layer 4': [(37, 'Ta'), (38, 'Ta'), (39, 'Ta'), (40, 'Ta'), (41, 'Ta'), (42, 'Ta'), (43, 'Ta'), (44, 'Ta'), (109, 'O'), (110, 'O'), (111, 'O'), (112, 'O'), (113, 'O'), (114, 'O'), (115, 'O'), (116, 'O'), (145, 'O'), (146, 'O'), (147, 'O'), (148, 'O'), (149, 'O'), (150, 'O'), (151, 'O'), (152, 'O'), (1, 'K'), (2, 'K'), (3, 'K'), (4, 'K'), (5, 'K'), (6, 'K'), (7, 'K'), (8, 'K'), (81, 'O'), (82, 'O'), (83, 'O'), (84, 'O'), (85, 'O'), (86, 'O'), (87, 'O'), (88, 'O')],
+'Layer 5': [(49, 'Ta'), (50, 'Ta'), (51, 'Ta'), (52, 'Ta'), (53, 'Ta'), (54, 'Ta'), (55, 'Ta'), (56, 'Ta'), (121, 'O'), (122, 'O'), (123, 'O'), (124, 'O'), (125, 'O'), (126, 'O'), (127, 'O'), (128, 'O'), (157, 'O'), (158, 'O'), (159, 'O'), (160, 'O'), (161, 'O'), (162, 'O'), (163, 'O'), (164, 'O'), (17, 'K'), (18, 'K'), (19, 'K'), (20, 'K'), (97, 'O'), (98, 'O'), (99, 'O'), (100, 'O')]
 }
 num_layers  = 5                                                            # Number of layers to plot
 xlim        = 6                                                            # Maxmium x boundary (equivalent minimum)
 ylim        = 30                                                           # Maximum y boundary
 ylim_inset  = 5                                                            # Maximum y boundary for inset                                                      
-nscf_file   = 'LDOS/ovac/defect/2_ovac_d_nscf.out'          
-total_file  = 'LDOS/ovac/defect/ovac_d_LDOS.pdos_tot'
-dir         = 'LDOS/ovac/defect/ovac_d_LDOS'
-outdir      = 'LDOS/ovac/defect/FINAL(INSET)'
-orientation = 'portrait'                                                  # 'portrait' or 'landscape'
-save        = True
+nscf_file   = 'LDOS/t5/8uc/stA/2_58s1_nscf.out'          
+total_file  = 'LDOS/t5/8uc/stA/58s1_LDOS.pdos_tot'
+dir         = 'LDOS/t5/8uc/stA/58s1_LDOS'
+outdir      = 'LDOS/t5/8uc/stA/FINAL(INSET)'
+orientation = 'landscape'                                                  # 'portrait' or 'landscape'
+save        = False
 title       = None                                                         # Optional: set title
 
 #tf.ldos(layers, num_layers, xlim, ylim, ylim_inset, nscf_file, total_file, dir, outdir, orientation, save,title)
