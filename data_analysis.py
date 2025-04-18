@@ -48,7 +48,7 @@ csv         = False
 # PARAMETERS #
 num_layers  = 5
 layer_atoms = [28,40,40,40,32]
-input_file  = 'stripe/FINAL/t5/8uc/stA/rlx.in'
+input_file  = 'stripe/FINAL/t5/8uc/stB/rlx.in'
 natoms      = 180
 
 
@@ -69,10 +69,10 @@ num_layers  = 5                                                            # Num
 xlim        = 6                                                            # Maxmium x boundary (equivalent minimum)
 ylim        = 30                                                           # Maximum y boundary
 ylim_inset  = 5                                                            # Maximum y boundary for inset                                                      
-nscf_file   = 'LDOS/t5/8uc/stA/2_58s1_nscf.out'          
-total_file  = 'LDOS/t5/8uc/stA/58s1_LDOS.pdos_tot'
-dir         = 'LDOS/t5/8uc/stA/58s1_LDOS'
-outdir      = 'LDOS/t5/8uc/stA/FINAL(INSET)'
+nscf_file   = 'LDOS/t5/8uc/stB/2_58s2_nscf.out'          
+total_file  = 'LDOS/t5/8uc/stB/58s2_LDOS.pdos_tot'
+dir         = 'LDOS/t5/8uc/stB/58s2_LDOS'
+outdir      = 'LDOS/t5/8uc/stB/FINAL(INSET)'
 orientation = 'landscape'                                                  # 'portrait' or 'landscape'
 save        = False
 title       = None                                                         # Optional: set title
